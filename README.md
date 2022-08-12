@@ -31,19 +31,17 @@ For our project we will also use OpenWeatherMap which is an online service, owne
 To get weather data, we use the python requests library and make API calls using the following endpoint, which is a 5-day forecast with a 3-hour step as recommended in our data science bootcamp:
 ![image](https://user-images.githubusercontent.com/103512413/184334047-87fcaca5-5f52-4833-bf7b-e28c799a063f.png)
 
-![](RackMultipart20220812-1-1yqpa0_html_c94baa2f40cd36a5.gif)
-
 Where the link is the endpoint. City is the name of the city we are interested in its weather. Country is the ISO 3166-1 standard defining codes for the names of countries. And OWM\_key is the API key that we received when we signed up for an account at OpenWeatherMap.
 
 There are a few other API endpoints that are free to access even without an account which you can find in the API documentation section of the OpenWeatherMap website.
 
 We then obtain weather data in a JSON format. And after exploring the response that we received, we selected the information that we find useful and made a data frame from them as follow:
 
-![](RackMultipart20220812-1-1yqpa0_html_ec6e954239386f71.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334251-8d3feff8-0db6-4907-b810-9cbc7eab732d.png)
 
 We obtain a data frame that looks like this:
 
-![](RackMultipart20220812-1-1yqpa0_html_895ed1018d2a52a9.png)
+![image](https://user-images.githubusercontent.com/103512413/184334292-9c6f4255-d5be-4bf7-a60c-536f5d2adae8.png)
 
 ## Collecting flights data
 
@@ -55,13 +53,13 @@ For the arrivals data, we used this time, Aerodatabox api which you can found in
 
 Again, we use the request library to make an API call as follow:
 
-![](RackMultipart20220812-1-1yqpa0_html_7e5245163146b5f3.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334332-64ed3714-d5c6-4a35-87e1-b09e405698f6.png)
 
 We need for this call an IATA airport code, the local time we want flights info from and the local time we want this info to, with a maximum difference of 12 hours.
 
 For a city that has more than one airport like Paris for example, we can get data on flight arrivals using the following code:
 
-![](RackMultipart20220812-1-1yqpa0_html_ee29b09ab94f68f6.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334368-f402fcaf-b3be-4642-8ed5-f7013e02a9e8.png)
 
 ## Data regarding cities and airports
 
@@ -81,21 +79,19 @@ Airports table is the same. Only in the unlikely event that a new airport is con
 
 Here is how the query to create the cities table looks like:
 
-![](RackMultipart20220812-1-1yqpa0_html_355986e89b916b8e.png)
+![image](https://user-images.githubusercontent.com/103512413/184334414-e6a80655-27a6-49ff-8738-f9ed2aec17a5.png)
 
 We end up with an empty table that would look like this when we fill it in with cities info:
 
-![](RackMultipart20220812-1-1yqpa0_html_fa30f572c46dcb63.png)
+![image](https://user-images.githubusercontent.com/103512413/184334431-8886f3a2-c576-4c36-91d6-74dddb60b09b.png)
 
 For the airports table the query to create it looks as follow:
 
-![](RackMultipart20220812-1-1yqpa0_html_33a3a9b35fafb17d.png)
+![image](https://user-images.githubusercontent.com/103512413/184334461-689fe2f7-2d15-4cf2-839f-586932a3e373.png)
 
 And we would end up with an empty table that would look as follow when we fill it in:
 
-![](RackMultipart20220812-1-1yqpa0_html_6f1abb657206d42f.png)
-
-**Weather Table**
+![image](https://user-images.githubusercontent.com/103512413/184334494-bf12247e-4b68-4a7e-baeb-b5a2cbfed3fe.png)
 
 # Connecting Python with MySQL
 
@@ -107,19 +103,19 @@ In our task we used SQLALchemy.
 
 We had to specify the connection information to connect to the database we have created, after installing SQLALchemy library with pip install.
 
-![](RackMultipart20220812-1-1yqpa0_html_e13b25ebcc2411d0.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334567-18e91613-7ada-4938-bfb2-0942b67df99f.png)
 
-![](RackMultipart20220812-1-1yqpa0_html_266eb3f7d6eef58c.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334586-6d6c3918-eb30-42b6-be28-5bcb8aac17bd.png)
 
 Then we use the pandas method DataFrame.to\_sql() to transform the Dataframes into MySQL tables.
 
-![](RackMultipart20220812-1-1yqpa0_html_8832c5da4fbd2af2.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334613-dafedfc5-d949-4a4a-9c50-ff8d4841515b.png)
 
 The argument if\_exists = 'append' allows to insert new rows into the existing corresponding table that we have created on MySQL.
 
 I ended up with this database schema that looks like this.
 
-![](RackMultipart20220812-1-1yqpa0_html_2d215102443739c1.png)
+![image](https://user-images.githubusercontent.com/103512413/184334645-86a26148-03da-491a-81d3-3888c9c63f5b.png)
 
 # Setting up a cloud MySQL instance
 
@@ -199,15 +195,15 @@ Before creating the lambda function, we needed to create empty table correspondi
 
 Here is the code:
 
-![](RackMultipart20220812-1-1yqpa0_html_d4bccae96e62df39.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334825-2bbedffc-2180-42b0-854c-cd09f21c72c4.png)
 
 Now going back to the lambda function dashboard, you can find the "Code Source" can be found by scrolling down. When you select lambda function.py, a window containing some code appears:
 
-![](RackMultipart20220812-1-1yqpa0_html_b57f535a62094a6f.png)
+![image](https://user-images.githubusercontent.com/103512413/184334855-2ffada1e-5d9d-463b-bee1-c1ee6afbd493.png)
 
 Here, we created the function that establishes a connection to the RDS instance we set up earlier and the code that requests the data for the arrivals and the weather corresponding for the cities Gans operates in as follow:
 
-![](RackMultipart20220812-1-1yqpa0_html_498a41b57b0992d2.gif)
+![image](https://user-images.githubusercontent.com/103512413/184334883-8677f866-16a3-4bf7-b1ed-08f8e24127c2.png)
 
 #### Testing the Lambda function
 
@@ -233,7 +229,7 @@ Next, we need to do some troubleshooting, which is increase the timeout by going
 
 Then, our lambda function was ready to run without any errors and the test result should look like the screenshot below:
 
-![](RackMultipart20220812-1-1yqpa0_html_47d458f83a26e593.png)
+![image](https://user-images.githubusercontent.com/103512413/184334924-909e5879-5a09-4040-8b25-fb81ab8fed61.png)
 
 # Automating the data pipeline with AWS EventBridge
 
@@ -241,7 +237,7 @@ Triggering the execution of scripts in the lambda function can be done using AWS
 
 To create a trigger, we create first a rule and we chose the rule type "Schedule", a rule that runs on a schedule, we chose the rate at which the lambda function is executed, selected a target, that is, lambda function, then chose the lambda function we created click on "Next". We were able to see something like this in the lambda function page.
 
-![](RackMultipart20220812-1-1yqpa0_html_1b31253886973c82.png)
+![image](https://user-images.githubusercontent.com/103512413/184334958-3a680214-d8eb-494b-83c0-d0f4d24eaed3.png)
 
 And Finally we come to the end of automating the data pipeline in the cloud.
 
