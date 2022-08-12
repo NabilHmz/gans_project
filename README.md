@@ -29,6 +29,7 @@ E-scooter usage is greatly influenced by the weather. Rarely anyone wants to ope
 For our project we will also use OpenWeatherMap which is an online service, owned by OpenWeather Ltd, that provides global weather data via API, including current weather data, forecasts, nowcasts and historical weather data for any geographical location (Wikipedia contributors, 2022).
 
 To get weather data, we use the python requests library and make API calls using the following endpoint, which is a 5-day forecast with a 3-hour step as recommended in our data science bootcamp:
+![image](https://user-images.githubusercontent.com/103512413/184334047-87fcaca5-5f52-4833-bf7b-e28c799a063f.png)
 
 ![](RackMultipart20220812-1-1yqpa0_html_c94baa2f40cd36a5.gif)
 
